@@ -1,7 +1,11 @@
 #
 # To build this docker image:
 #
-#     docker build -t mhwombat/data-mining:1.06-datascience-notebook .
+#     docker build -t mhwombat/data-mining:1.08-datascience-notebook .
+#
+# To publish the image:
+#
+#     docker push mhwombat/data-mining:1.08-datascience-notebook
 #
 FROM jupyter/datascience-notebook:python-3.8.6
 MAINTAINER amy@nualeargais.ie
@@ -24,5 +28,10 @@ RUN python -m pip install statsmodels
 RUN python -m pip install tensorflow
 RUN python -m pip install tslearn
 RUN python -m pip install xgboost
+# RUN python -m pip install pycebox
+RUN python -m pip install interpret
 
 RUN jupyter labextension install jupyterlab-plotly@4.7.1
+
+# for InterpretML visualisations
+EXPOSE 7001/tcp
