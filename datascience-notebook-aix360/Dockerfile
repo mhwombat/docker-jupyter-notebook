@@ -1,11 +1,11 @@
 #
 # To build this docker image:
 #
-#     docker build -t mhwombat/data-mining:1.0-datascience-notebook-aix360 .
+#     docker build -t mhwombat/data-mining:1.1-datascience-notebook-aix360 .
 #
 # To publish the image:
 #
-#     docker push mhwombat/data-mining:1.0-datascience-notebook-aix360
+#     docker push mhwombat/data-mining:1.1-datascience-notebook-aix360
 #
 FROM jupyter/datascience-notebook:python-3.7.6
 MAINTAINER amy@nualeargais.ie
@@ -26,6 +26,8 @@ RUN unzip AIX360-master.zip
 WORKDIR AIX360-master
 RUN python -m pip install .
 WORKDIR ..
+
+RUN python -m pip install xport==2.0.2 # downgrade
 
 RUN python -m pip install geopy
 RUN python -m pip install graphviz
