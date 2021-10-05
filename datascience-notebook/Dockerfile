@@ -1,13 +1,13 @@
 #
 # To build this docker image:
 #
-#     docker build -t mhwombat/data-mining:1.15-datascience-notebook .
+#     podman build --tag mhwombat/data-mining:1.16-datascience-notebook .
 #
 # To publish the image:
 #
-#     docker push mhwombat/data-mining:1.15-datascience-notebook
+#     podman push mhwombat/data-mining:1.16-datascience-notebook docker.io
 #
-FROM jupyter/datascience-notebook:python-3.8.6
+FROM docker.io/jupyter/datascience-notebook:python-3.8.6
 MAINTAINER amy@nualeargais.ie
 
 USER root
